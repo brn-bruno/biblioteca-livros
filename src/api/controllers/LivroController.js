@@ -9,9 +9,9 @@ class LivroController {
         
     }
 
-     listarLivroPorId(req, res) {
+    async listarLivroPorId(req, res) {
         const id = parseInt(req.params.id);
-        const livro =  livroModel.listarPorId(id);
+        const livro = await livroModel.listarPorId(id);
 
         return res.status(livro.status).send(livro.response);
 
@@ -20,8 +20,8 @@ class LivroController {
     async cadastrarLivro(req, res) {
         const item = req.body;
         
-        if (item.id === null) {
-            return res.status(403).send('O ID do livro não pode ser nulo!');
+        if (item.titulo === null) {
+            return res.status(403).send('O título do livro não pode ser nulo!');
             
         } else {
             const cadastro = await livroModel.criar(item);

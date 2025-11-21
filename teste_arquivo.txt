@@ -1,1 +1,2 @@
 Incluindo a linha 1 para teste
+Incluindo a linha 2 para teste
